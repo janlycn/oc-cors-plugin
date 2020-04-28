@@ -40,6 +40,11 @@ class HandleCors
             abort(403);
         }
 
+        if ($this->cors->isPreflightRequest($request)) {
+            $response = $this->cors->handlePreflightRequest($request);
+            return $this->cors->addActualRequestHeaders($response, $request);
+        }
+
         /** @var \Illuminate\Http\Response $response */
         $response = $next($request);
 

@@ -15,10 +15,10 @@ class Plugin extends PluginBase
         $this->app['Illuminate\Contracts\Http\Kernel']
             ->prependMiddleware(HandleCors::class);
 
-        if (request()->isMethod('OPTIONS')) {
-            $this->app['Illuminate\Contracts\Http\Kernel']
-                ->prependMiddleware(HandlePreflight::class);
-        }
+        // if (request()->isMethod('OPTIONS')) {
+        //     $this->app['Illuminate\Contracts\Http\Kernel']
+        //         ->prependMiddleware(HandlePreflight::class);
+        // }
     }
 
     public function registerPermissions()
